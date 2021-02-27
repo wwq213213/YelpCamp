@@ -1,7 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const path = require('path');
-const Campground = require('./models/campground')
+const mongoose = require('mongoose');
+const Campground = require('./models/campground');
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.find({})
-    res.render('campgrounds/index',{ campgrounds })
+    res.render('campgrounds/index', { campgrounds })
 })
 
 app.listen(3000, () => {
